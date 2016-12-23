@@ -1,3 +1,6 @@
+
+/* Configuração default é a do celular: width <= 480px. */
+
 /* Fonte para toda a página: */
 @font-face {
 	font-family:LeagueGothic;
@@ -12,6 +15,7 @@ body {
 
 .jumbotron {
 	background-color:#FFEFDB;
+	border-radius:0px !important;
 }
 
 /* Centraliza todos os conteúdos das divs: */
@@ -27,18 +31,28 @@ body {
 	color:#A90F3A;
 	font-weight:bold;
 	float:left;
-	line-height:27px;
+	line-height:42px;
+	font-size:700%;
 }
 
 /* Imagem das moedas no header:*/
 #header-bigScreen img {
 	float:left;
 	margin-right:10px;
+	display:none;
 }
 
 /* Estilo diferente para a palavra 'Investimentos':*/
 #header-investimentos {
 	font-size:50%;
+}
+
+
+/* Div que contém os dois rows iniciais: */
+#parte-inicial {
+	background-image:url("../img/circulo.png");
+	margin-top:-30px;
+	padding-top:30px;
 }
 
 /* Estilos para as imagens circulares que estão arranjadas em colunas: */
@@ -61,3 +75,26 @@ figcaption {
 	padding-bottom:35px;
 }
 
+
+
+/* Configuração do tablet: width de 481 px a 768 px. Herda estilos do celular. */
+@media only screen and (min-width: 481px) {
+	/* Ajusta os elementos do header: */
+	#header-bigScreen h1 {
+		font-size:500%;
+		line-height:30px;
+	}
+	
+	#header-bigScreen img {
+		display:block;
+	}
+	
+}
+
+
+/* Layout para desktops: 769 px ou mais. Herda estilos de celulares e tablets. */
+@media only screen and (min-width: 769px) {
+	
+	
+	
+}
