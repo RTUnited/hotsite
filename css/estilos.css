@@ -1,0 +1,63 @@
+/* Fonte para toda a página: */
+@font-face {
+	font-family:LeagueGothic;
+	src:url("../fonts/LeagueGothic/LeagueGothic-Regular.otf") format("opentype");
+}
+
+
+body {
+	color:#5B001A;
+	font-family:LeagueGothic;
+}
+
+.jumbotron {
+	background-color:#FFEFDB;
+}
+
+/* Centraliza todos os conteúdos das divs: */
+#header-bigScreen, .col-sm-4, .col-sm-6 {
+	text-align:center;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+
+/* Título do header (nome da empresa): */
+#header-bigScreen h1 {
+	color:#A90F3A;
+	font-weight:bold;
+	float:left;
+	line-height:27px;
+}
+
+/* Imagem das moedas no header:*/
+#header-bigScreen img {
+	float:left;
+	margin-right:10px;
+}
+
+/* Estilo diferente para a palavra 'Investimentos':*/
+#header-investimentos {
+	font-size:50%;
+}
+
+/* Estilos para as imagens circulares que estão arranjadas em colunas: */
+figure img {
+	border:solid;
+}
+
+figcaption {
+	font-size:200%;
+	text-align:center;
+}
+
+#texto-inicial span {
+	font-size:600%;
+	line-height:90px;	
+}
+
+#texto-inicial {
+	padding-top:50px;
+	padding-bottom:35px;
+}
+
