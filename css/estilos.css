@@ -7,10 +7,15 @@
 	src:url("../fonts/LeagueGothic/LeagueGothic-Regular.otf") format("opentype");
 }
 
+* {
+	max-width:100%;
+}
 
 body {
 	color:#5B001A;
 	font-family:LeagueGothic;
+	max-width:1080px;
+	margin:auto;
 }
 
 .jumbotron {
@@ -19,7 +24,7 @@ body {
 }
 
 /* Centraliza todos os conteúdos das divs: */
-#header-bigScreen, .col-sm-4, .col-sm-6 {
+#header-screen, .col-sm-4, .col-sm-6, .col-sm-3, .col-sm-12 {
 	text-align:center;
 	display:flex;
 	justify-content:center;
@@ -27,7 +32,7 @@ body {
 }
 
 /* Título do header (nome da empresa): */
-#header-bigScreen h1 {
+#header-screen h1 {
 	color:#A90F3A;
 	font-weight:bold;
 	float:left;
@@ -36,7 +41,7 @@ body {
 }
 
 /* Imagem das moedas no header:*/
-#header-bigScreen img {
+#header-screen img {
 	float:left;
 	margin-right:10px;
 	display:none;
@@ -60,41 +65,75 @@ figure img {
 	border:solid;
 }
 
+/* Algumas linhas devem aparecer no celular no lugar de outras: */
+.bigScreen {
+	display:none;
+}
+
+.row.bigScreen {
+	margin:0px;
+}
+.row.smallScreen {
+	justify-content:center;
+	align-items:center;
+	display:flex;
+	margin:0px;
+}
+
+.col-sm-6.smallScreen {
+	width:250px;
+	float:left;
+	padding:20px;
+}
+
 figcaption {
 	font-size:200%;
 	text-align:center;
 }
 
-#texto-inicial span {
+.texto-inicial span {
 	font-size:600%;
-	line-height:90px;	
+	line-height:90px;
 }
 
-#texto-inicial {
+.texto-inicial {
+	padding:35px;
 	padding-top:50px;
-	padding-bottom:35px;
+	
 }
 
 
 
-/* Configuração do tablet: width de 481 px a 768 px. Herda estilos do celular. */
+/* Configuração do tablet: width de481 px a 849px. Herda estilos do celular. */
 @media only screen and (min-width: 481px) {
 	/* Ajusta os elementos do header: */
-	#header-bigScreen h1 {
+	#header-screen h1 {
 		font-size:500%;
 		line-height:30px;
 	}
 	
-	#header-bigScreen img {
+	#header-screen img {
 		display:block;
 	}
+	
 	
 }
 
 
-/* Layout para desktops: 769 px ou mais. Herda estilos de celulares e tablets. */
-@media only screen and (min-width: 769px) {
+/* Layout para desktops: 850px ou mais. Herda estilos de celulares e tablets. */
+@media only screen and (min-width: 850px) {
+	.bigScreen {
+		display:block;
+	}
 	
+	.row.smallScreen {
+		display:none;
+	}
+	
+	/* O container será a tela inteira: */
+	.container {
+		width:auto;
+	}
 	
 	
 }
