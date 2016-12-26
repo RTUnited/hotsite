@@ -17,6 +17,27 @@
 		<title>No$$a Investimentos</title>
 		
 		<link rel="stylesheet" href="css/estilos.css">
+		
+		<script>
+			// A taxa abaixo é de mentira, provisória.
+			// Aqui ficarão as taxas por faixa de investimento das corretoras.
+			function calcularTarifa() {
+				tarifa = 0;
+				valorInput = document.getElementById('valor-investido').value
+				corretora = document.getElementById('corretora').value
+			
+				if (corretora == 'E' && valorInput > 1000) {
+					tarifa = 25;
+				}
+			
+			
+				document.getElementById('tarifa-disabled').value = tarifa;
+			
+			}
+		
+		
+		
+		</script>
 	
 	</head>
 	
@@ -116,7 +137,105 @@
 					</div>
 					
 				</div>
+				
+				
+				<div class="row">	
+					<div class="col-sm-12">
+						<p class="texto-pagina">Até DD/MM/AAAA, se cadastrando pelo nosso site, você ganha 50% de desconto na taxa de corretagem*, qualquer que seja o valor investido.</p>
+					</div>
+				</div>
+				
+				
+				
+				<div class="row">	
+					<div class="col-sm-8">
+						<form class="form-inline">
+							<div class="form-group">
+								<div class="input-group">
+									<label for="corretora">Corretora: </label>
+									<select id="corretora" onchange="calcularTarifa()" class="form-control">
+										<option value="N">No$$a</option>
+										<option value="S">Santander</option>
+										<option value="B">Banco do Brasil</option>
+										<option value="E">Easynvest</option>
+									</select>
+								</div>
+								
+								
+								<div class="input-group">
+									<label for="valor-investido">Valor investido: </label>
+									<div class="input-group-addon">R$</div>
+									<input type="number" id="valor-investido" min="1000" step="100" oninput="calcularTarifa()" class="form-control" placeholder="Valor">
+									<div class="input-group-addon">.00</div>
+								</div>
+								
+								<br>
+								
+								<div class="input-group">
+									<label for="tarifa-disabled">Total: </label>
+									<div class="input-group-addon">R$</div>
+									<input class="form-control" id="tarifa-disabled" type="number" placeholder="0" readonly>
+								</div>
+							</div>
+						</form>
+						
+						<p class="texto-pagina">Não perca tempo com as outras, invista com a NO$$A.</p>
+					</div>
+					
+					<!-- Impede que o usuário digite caracteres especiais no formulário acima, apenas poderá digitar números: -->
+					<script>
+					// Fonte: http://stackoverflow.com/questions/895659/how-do-i-block-or-restrict-special-characters-from-input-fields-with-jquery
+					$('input').on('keypress', function (event) {
+						var regex = new RegExp("^[0-9]+$");
+						var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+						if (!regex.test(key)) {
+							event.preventDefault();
+							return false;
+						}
+					});
+		
+					</script>
+					
+					<div class="col-sm-4">
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th>Corretora</th>
+									<th>Valor até R$</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>No$$a</td>
+									<td>--</td>
+								</tr>
+								<tr>
+									<td>Santander</td>
+									<td>--</td>
+								</tr>
+								<tr>
+									<td>Banco do Brasil</td>
+									<td>--</td>
+								</tr>
+								<tr>
+									<td>Easynvest</td>
+									<td>--</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				
+				
+				<div class="row">	
+					<div class="col-sm-12">
+						<p class="texto-disclaimer">*Descontos válidos durante dois anos de uso.</p>
+					</div>
+				</div>
+				
 			</div>
+			
+			<div class="panel-footer"><p>&copy; No$$a 2016.</p></div>
 		
 		</div>
 	

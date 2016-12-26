@@ -70,14 +70,14 @@ figure img {
 	display:none;
 }
 
-.row.bigScreen {
+.row {
 	margin:0px;
 }
 .row.smallScreen {
 	justify-content:center;
 	align-items:center;
 	display:flex;
-	margin:0px;
+
 }
 
 .col-sm-6.smallScreen {
@@ -102,6 +102,26 @@ figcaption {
 	
 }
 
+/* Demais parágrafos da página: */
+.texto-pagina {
+	font-size:300%;
+	padding:25px;
+}
+
+table {
+	font-size:150%;
+}
+
+/* Coloca um display especial nos labels do formulário: */
+label {
+	display:table-caption !important;
+	
+}
+
+/* Texto do footer: */
+.texto-disclaimer {
+
+}
 
 
 /* Configuração do tablet: width de481 px a 849px. Herda estilos do celular. */
