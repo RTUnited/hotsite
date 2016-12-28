@@ -19,21 +19,80 @@
 		<link rel="stylesheet" href="css/estilos.css">
 		
 		<script>
-			// A taxa abaixo é de mentira, provisória.
-			// Aqui ficarão as taxas por faixa de investimento das corretoras.
+			// Taxa de corretagem pela tabela Bovespa, utilizada pelo Bradesco e Santader.
+			function tabelaBovespa(valorInput) {
+				total = 0
+				
+				if (valorInput <= 135.07) {
+					total = 2.7;
+				
+				} else if ((valorInput >= 135.08) && (valorInput <= 498.62)) {
+					total = 0.02 * valorInput;
+				
+				} else if ((valorInput >= 498.63) && (valorInput <= 1514.69)) {
+					total = ((0.015 * valorInput) + 2.49);
+				
+				} else if ((valorInput >= 1514.7) && (valorInput <= 3029.38)) {
+					total = ((0.01 * valorInput) + 10.06);
+				
+				} else {
+					total = ((0.005 * valorInput) + 25.21);
+				}
+			
+				// Arrendonda o valor para duas casas decimais:
+				return Math.round(total * 100) / 100;
+			
+			}
+		
+		
+			// Taxas por faixa de investimento das corretoras.
 			function calcularTarifa() {
 				tarifa = 0;
 				valorInput = document.getElementById('valor-investido').value
 				corretora = document.getElementById('corretora').value
 			
-				if (corretora == 'E' && valorInput > 1000) {
-					tarifa = 25;
+				// No$$a:
+				if (corretora == 'N') {
+					tarifa = 2;
 				}
+				
+				// Ágora:
+				if (corretora == 'A') {
+					tarifa = 20;
+				}
+				
+				// Bradesco:
+				if (corretora == 'B') {
+					tarifa = tabelaBovespa(valorInput);
+				}
+				
+				// Easynvest:
+				if (corretora == 'E') {
+					tarifa = 10;
+				}
+				
+				// HSBC:
+				if (corretora == 'H') {
+					tarifa = 18;
+				}
+				
+				// Itaú:
+				if (corretora == 'I') {
+					tarifa = 10 + (0.003 * valorInput);
+				}
+				
+				// Santander:
+				if (corretora == 'S') {
+					tarifa = tabelaBovespa(valorInput);
+				}
+				
 			
-			
-				document.getElementById('tarifa-disabled').value = tarifa;
+				document.getElementById('tarifa-readonly').value = tarifa;
 			
 			}
+			
+
+
 		
 		
 		
@@ -141,7 +200,7 @@
 				
 				<div class="row">	
 					<div class="col-sm-12">
-						<p class="texto-pagina">Até DD/MM/AAAA, se cadastrando pelo nosso site, você ganha 50% de desconto na taxa de corretagem*, qualquer que seja o valor investido.</p>
+						<p class="texto-pagina">Até 21/07/2017, se cadastrando pelo nosso site, você ganha 50% de desconto na taxa de corretagem*, qualquer que seja o valor investido.</p>
 					</div>
 				</div>
 				
@@ -155,9 +214,12 @@
 									<label for="corretora">Corretora: </label>
 									<select id="corretora" onchange="calcularTarifa()" class="form-control">
 										<option value="N">No$$a</option>
-										<option value="S">Santander</option>
-										<option value="B">Banco do Brasil</option>
+										<option value="A">Ágora</option>
+										<option value="B">Bradesco</option>
 										<option value="E">Easynvest</option>
+										<option value="H">HSBC</option>
+										<option value="I">Itaú</option>
+										<option value="S">Santander</option>
 									</select>
 								</div>
 								
@@ -165,16 +227,16 @@
 								<div class="input-group">
 									<label for="valor-investido">Valor investido: </label>
 									<div class="input-group-addon">R$</div>
-									<input type="number" id="valor-investido" min="1000" step="100" oninput="calcularTarifa()" class="form-control" placeholder="Valor">
+									<input type="number" id="valor-investido" min="1000" step="100" oninput="calcularTarifa()" class="form-control" placeholder="Valor" value=0>
 									<div class="input-group-addon">.00</div>
 								</div>
 								
 								<br>
 								
 								<div class="input-group">
-									<label for="tarifa-disabled">Total: </label>
+									<label for="tarifa-readonly">Total: </label>
 									<div class="input-group-addon">R$</div>
-									<input class="form-control" id="tarifa-disabled" type="number" placeholder="0" readonly>
+									<input class="form-control" id="tarifa-readonly" type="number" placeholder="0" readonly>
 								</div>
 							</div>
 						</form>
@@ -201,26 +263,40 @@
 							<thead>
 								<tr>
 									<th>Corretora</th>
-									<th>Valor até R$</th>
+									<th>Valor até R$**</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
 									<td>No$$a</td>
-									<td>--</td>
+									<td>2,00</td>
 								</tr>
 								<tr>
-									<td>Santander</td>
-									<td>--</td>
+									<td>Ágora</td>
+									<td>20,00</td>
 								</tr>
 								<tr>
-									<td>Banco do Brasil</td>
-									<td>--</td>
+									<td>Bradesco</td>
+									<td>0,25%</td>
 								</tr>
 								<tr>
 									<td>Easynvest</td>
-									<td>--</td>
+									<td>10,00</td>
 								</tr>
+								<tr>
+									<td>HSBC</td>
+									<td>18,00</td>
+								</tr>
+								<tr>
+									<td>Itaú</td>
+									<td>10,00 + 0,3%</td>
+								</tr>
+								<tr>
+									<td>Santander</td>
+									<td>25,21 + 0,5%</td>
+								</tr>
+								
+								
 							</tbody>
 						</table>
 					</div>
@@ -229,13 +305,17 @@
 				
 				<div class="row">	
 					<div class="col-sm-12">
-						<p class="texto-disclaimer">*Descontos válidos durante dois anos de uso.</p>
+						<p class="texto-disclaimer">
+							* Descontos válidos durante dois anos de uso.
+							<br>
+							** Valores das corretoras capturados em 12/2016.
+						</p>
 					</div>
 				</div>
 				
 			</div>
 			
-			<div class="panel-footer"><p>&copy; No$$a 2016.</p></div>
+			<div class="panel-footer"><p>&copy; No$$a 2017.</p></div>
 		
 		</div>
 	
