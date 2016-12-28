@@ -200,7 +200,7 @@
 				
 				<div class="row">	
 					<div class="col-sm-12">
-						<p class="texto-pagina">Até 21/07/2017, se cadastrando pelo nosso site, você ganha 50% de desconto na taxa de corretagem*, qualquer que seja o valor investido.</p>
+						<p class="texto-pagina">Até <span class="destaque">21/07/2017</span>, se cadastrando pelo nosso site, você ganha <span class="destaque">50%</span> de desconto na taxa de corretagem<span class="asterisco">*</span>, qualquer que seja o valor investido.</p>
 					</div>
 				</div>
 				
@@ -222,18 +222,18 @@
 										<option value="S">Santander</option>
 									</select>
 								</div>
-								
+
 								
 								<div class="input-group">
 									<label for="valor-investido">Valor investido: </label>
 									<div class="input-group-addon">R$</div>
 									<input type="number" id="valor-investido" min="1000" step="100" oninput="calcularTarifa()" class="form-control" placeholder="Valor" value=0>
-									<div class="input-group-addon">.00</div>
+									<div class="input-group-addon">,00</div>
 								</div>
 								
 								<br>
 								
-								<div class="input-group">
+								<div class="input-group" id="ultima-formulario">
 									<label for="tarifa-readonly">Total: </label>
 									<div class="input-group-addon">R$</div>
 									<input class="form-control" id="tarifa-readonly" type="number" placeholder="0" readonly>
@@ -241,7 +241,7 @@
 							</div>
 						</form>
 						
-						<p class="texto-pagina">Não perca tempo com as outras, invista com a NO$$A.</p>
+						<p class="texto-pagina">Não perca tempo com as outras, invista com a <span class="destaque">NO$$A</span>.</p>
 					</div>
 					
 					<!-- Impede que o usuário digite caracteres especiais no formulário acima, apenas poderá digitar números: -->
@@ -262,8 +262,8 @@
 						<table class="table table-striped">
 							<thead>
 								<tr>
-									<th>Corretora</th>
-									<th>Valor até R$**</th>
+									<th>Corretora<span class="asterisco"></span></th>
+									<th>Valor até R$<span class="asterisco">**</span></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -306,9 +306,7 @@
 				<div class="row">	
 					<div class="col-sm-12">
 						<p class="texto-disclaimer">
-							* Descontos válidos durante dois anos de uso.
-							<br>
-							** Valores das corretoras capturados em 12/2016.
+							<span class="asterisco">*</span>Descontos válidos durante dois anos de uso. <span class="asterisco">**</span>Valores das corretoras atualizados em 12/2016.
 						</p>
 					</div>
 				</div>

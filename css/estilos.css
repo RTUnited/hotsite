@@ -106,21 +106,97 @@ figcaption {
 .texto-pagina {
 	font-size:300%;
 	padding:25px;
+	line-height:70px;
 }
 
 table {
 	font-size:150%;
 }
 
-/* Coloca um display especial nos labels do formulário: */
-label {
-	display:table-caption !important;
+
+.table th {
+	letter-spacing:1px;
+	text-align:center;
 	
 }
 
+
+td {
+    text-align:left;
+    padding-left:25px !important;
+}
+
+.form-inline {
+	border:solid grey 1px;
+	padding-top:10px;
+	padding-bottom:10px;
+	background-color:rgba(255,255,255,0.3);
+	max-width:400px;
+	margin:0px auto;
+	
+	text-align:center;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	
+}
+
+.input-group {
+	width:170px;
+}
+
+.input-group:nth-child(2) {
+	margin-top:22px;
+}
+
+.input-group-addon, #corretora, .form-control {
+	font-size:150%;
+}
+
+.form-control {
+	padding:0px;
+	padding-left:6px;
+}
+
+
+
+/* Coloca um display especial nos labels do formulário: */
+label {
+	display:table-caption !important;
+	font-size:170%;
+	letter-spacing:1px;
+}
+
+
 /* Texto do footer: */
 .texto-disclaimer {
+	letter-spacing:1px;
+}
 
+/* Spans em destaque no texto: */
+.destaque {
+	padding-left:5px;
+	padding-right:5px;
+	font-size:150%;
+	color:#A90F3A;
+	
+}
+
+/* Span que contém os asteriscos: */
+.asterisco {
+	vertical-align:-webkit-baseline-middle;
+	padding-left:3px;
+	padding-right:3px;
+}
+
+.panel-footer {
+	font-size:150%;
+	text-align:center;
+}
+
+.panel-footer p {
+	margin:0px;
+	padding:5px;
 }
 
 
@@ -137,8 +213,27 @@ label {
 	}
 	
 	
+	
+	
 }
 
+
+@media only screen and (min-width: 768px) {
+	.input-group:first-child {
+		margin-right:10px;
+		
+	}
+
+	.input-group:nth-child(2) {
+		margin-top:0px;
+	}
+	
+	#ultima-formulario {
+		margin-top:15px;
+	}
+	
+	
+}
 
 /* Layout para desktops: 850px ou mais. Herda estilos de celulares e tablets. */
 @media only screen and (min-width: 850px) {
