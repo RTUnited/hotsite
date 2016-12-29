@@ -1,16 +1,26 @@
 
-/* Configuração default é a do celular: width <= 480px. */
+/* Configuração padrão é a do celular: width <= 480px. */
 
 /* Fonte para toda a página: */
 @font-face {
 	font-family:LeagueGothic;
-	src:url("../fonts/LeagueGothic/LeagueGothic-Regular.otf") format("opentype");
+
+	src:url('../fonts/LeagueGothic/LeagueGothic-Regular.eot');
+	src:url('../fonts/LeagueGothic/LeagueGothic-Regular.eot?#iefix') format('embedded-opentype'), 
+	url('.../fonts/LeagueGothic/LeagueGothic-Regular.woff2') format('woff2'),
+	url('../fonts/LeagueGothic/LeagueGothic-Regular.woff') format('woff'),
+	url('../fonts/LeagueGothic/LeagueGothic-Regular.ttf') format('truetype');
+
 }
+
 
 * {
 	max-width:100%;
 }
 
+
+/* Restringe o tamanho máximo a 1080px para que os elementos não 
+fiquem muito distantes em telas maiores: */
 body {
 	color:#5B001A;
 	font-family:LeagueGothic;
@@ -18,10 +28,6 @@ body {
 	margin:auto;
 }
 
-.jumbotron {
-	background-color:#FFEFDB;
-	border-radius:0px !important;
-}
 
 /* Centraliza todos os conteúdos das divs: */
 #header-screen, .col-sm-4, .col-sm-6, .col-sm-3, .col-sm-12 {
@@ -29,6 +35,16 @@ body {
 	display:flex;
 	justify-content:center;
 	align-items:center;
+}
+
+
+/* ************************************ */
+/* Header: */
+
+/* Container do header: */
+.jumbotron {
+	background-color:#FFEFDB;
+	border-radius:0px !important;
 }
 
 /* Título do header (nome da empresa): */
@@ -51,34 +67,46 @@ body {
 #header-investimentos {
 	font-size:50%;
 }
+/* ************************************ */
 
 
-/* Div que contém os dois rows iniciais: */
-#parte-inicial {
+/* Div que contém todo o conteúdo da página, exceto header e footer: */
+#conteudo {
 	background-image:url("../img/circulo.png");
 	margin-top:-30px;
 	padding-top:30px;
 }
 
-/* Estilos para as imagens circulares que estão arranjadas em colunas: */
+
+/* Estilos para as imagens circulares que aparecem no início: */
 figure img {
 	border:solid;
 }
 
-/* Algumas linhas devem aparecer no celular no lugar de outras: */
+
+figcaption {
+	font-size:200%;
+	text-align:center;
+}
+
+
+/* Alguns rows devem aparecer no celular no lugar de outros: */
 .bigScreen {
 	display:none;
 }
 
+
 .row {
 	margin:0px;
 }
+
+
 .row.smallScreen {
 	justify-content:center;
 	align-items:center;
 	display:flex;
-
 }
+
 
 .col-sm-6.smallScreen {
 	width:250px;
@@ -86,21 +114,18 @@ figure img {
 	padding:20px;
 }
 
-figcaption {
-	font-size:200%;
-	text-align:center;
-}
 
 .texto-inicial span {
 	font-size:600%;
 	line-height:90px;
 }
 
+
 .texto-inicial {
 	padding:35px;
 	padding-top:50px;
-	
 }
+
 
 /* Demais parágrafos da página: */
 .texto-pagina {
@@ -109,23 +134,29 @@ figcaption {
 	line-height:70px;
 }
 
+
+/* ************************************ */
+/* Tabela com os dados das corretoras: */
 table {
 	font-size:150%;
+	background-color:rgba(255,255,255,0.3);
 }
-
-
+.table {
+	border-radius:5px !important;
+}
 .table th {
 	letter-spacing:1px;
 	text-align:center;
-	
 }
-
-
 td {
     text-align:left;
     padding-left:25px !important;
 }
+/* ************************************ */
 
+
+/* ************************************ */
+/* Formulário: */
 .form-inline {
 	border:solid grey 1px;
 	padding-top:10px;
@@ -133,18 +164,18 @@ td {
 	background-color:rgba(255,255,255,0.3);
 	max-width:400px;
 	margin:0px auto;
-	
+	border-radius:5px;
 	text-align:center;
 	display:flex;
 	justify-content:center;
 	align-items:center;
-	
 }
 
 .input-group {
 	width:170px;
 }
 
+/* Valor monetário a ser investido: */
 .input-group:nth-child(2) {
 	margin-top:22px;
 }
@@ -158,20 +189,14 @@ td {
 	padding-left:6px;
 }
 
-
-
 /* Coloca um display especial nos labels do formulário: */
 label {
 	display:table-caption !important;
 	font-size:170%;
 	letter-spacing:1px;
 }
+/* ************************************ */
 
-
-/* Texto do footer: */
-.texto-disclaimer {
-	letter-spacing:1px;
-}
 
 /* Spans em destaque no texto: */
 .destaque {
@@ -179,68 +204,70 @@ label {
 	padding-right:5px;
 	font-size:150%;
 	color:#A90F3A;
-	
 }
+
+
+/* Notas de rodapé: */
+.texto-disclaimer {
+	letter-spacing:1px;
+}
+
 
 /* Span que contém os asteriscos: */
 .asterisco {
+	vertical-align:-moz-middle-with-baseline;
 	vertical-align:-webkit-baseline-middle;
 	padding-left:3px;
 	padding-right:3px;
 }
 
+
+/* ************************************ */
+/* Footer: */
 .panel-footer {
 	font-size:150%;
 	text-align:center;
+	background-color:#FFEFDB;
 }
-
 .panel-footer p {
 	margin:0px;
 	padding:5px;
 }
+/* ************************************ */
 
 
-/* Configuração do tablet: width de481 px a 849px. Herda estilos do celular. */
+/* Configuração do tablet: width de 481px a 849px. Herda estilos do celular: */
 @media only screen and (min-width: 481px) {
 	/* Ajusta os elementos do header: */
 	#header-screen h1 {
 		font-size:500%;
 		line-height:30px;
 	}
-	
 	#header-screen img {
 		display:block;
 	}
-	
-	
-	
-	
 }
 
 
+/* Ajusta os elementos do formulário a partir de 768px: */
 @media only screen and (min-width: 768px) {
 	.input-group:first-child {
 		margin-right:10px;
-		
 	}
-
 	.input-group:nth-child(2) {
 		margin-top:0px;
 	}
-	
 	#ultima-formulario {
 		margin-top:15px;
 	}
-	
-	
 }
 
-/* Layout para desktops: 850px ou mais. Herda estilos de celulares e tablets. */
+
+/* Layout para desktops: 850px ou mais. Herda estilos de celulares e tablets: */
 @media only screen and (min-width: 850px) {
 	.bigScreen {
 		display:block;
 	}
-	
 	.row.smallScreen {
 		display:none;
 	}
@@ -249,6 +276,5 @@ label {
 	.container {
 		width:auto;
 	}
-	
 	
 }

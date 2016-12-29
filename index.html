@@ -6,97 +6,23 @@
 		<meta name="description" content="Template de hotsite">
 		<meta name="author" content="RT Informática">
 		
-		<!-- <link rel="icon" type="image/png" href="imagens/favicon.png" /> --> 
+		<link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+		
 		
 		<!-- Carregando JQuery e Bootstrap pelo CDN: -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		
+		<!-- ----------------------------------------------------- -->
 
-		<title>No$$a Investimentos</title>
-		
+
 		<link rel="stylesheet" href="css/estilos.css">
 		
-		<script>
-			// Taxa de corretagem pela tabela Bovespa, utilizada pelo Bradesco e Santader.
-			function tabelaBovespa(valorInput) {
-				total = 0
-				
-				if (valorInput <= 135.07) {
-					total = 2.7;
-				
-				} else if ((valorInput >= 135.08) && (valorInput <= 498.62)) {
-					total = 0.02 * valorInput;
-				
-				} else if ((valorInput >= 498.63) && (valorInput <= 1514.69)) {
-					total = ((0.015 * valorInput) + 2.49);
-				
-				} else if ((valorInput >= 1514.7) && (valorInput <= 3029.38)) {
-					total = ((0.01 * valorInput) + 10.06);
-				
-				} else {
-					total = ((0.005 * valorInput) + 25.21);
-				}
-			
-				// Arrendonda o valor para duas casas decimais:
-				return Math.round(total * 100) / 100;
-			
-			}
+		<!-- Funções para cálculo das taxas de corretagem: -->
+		<script src="js/funcoes.js"></script>
 		
-		
-			// Taxas por faixa de investimento das corretoras.
-			function calcularTarifa() {
-				tarifa = 0;
-				valorInput = document.getElementById('valor-investido').value
-				corretora = document.getElementById('corretora').value
-			
-				// No$$a:
-				if (corretora == 'N') {
-					tarifa = 2;
-				}
-				
-				// Ágora:
-				if (corretora == 'A') {
-					tarifa = 20;
-				}
-				
-				// Bradesco:
-				if (corretora == 'B') {
-					tarifa = tabelaBovespa(valorInput);
-				}
-				
-				// Easynvest:
-				if (corretora == 'E') {
-					tarifa = 10;
-				}
-				
-				// HSBC:
-				if (corretora == 'H') {
-					tarifa = 18;
-				}
-				
-				// Itaú:
-				if (corretora == 'I') {
-					tarifa = 10 + (0.003 * valorInput);
-				}
-				
-				// Santander:
-				if (corretora == 'S') {
-					tarifa = tabelaBovespa(valorInput);
-				}
-				
-			
-				document.getElementById('tarifa-readonly').value = tarifa;
-			
-			}
-			
-
-
-		
-		
-		
-		</script>
+		<title>No$$a Investimentos</title>
 	
 	</head>
 	
@@ -111,11 +37,11 @@
 				</div>
 			</div>
 			
-			<div id="parte-inicial">
+			<div id="conteudo">
 				<div class="row bigScreen">
 					<div class="col-sm-4">
 						<figure class="figure">
-							<img src="img/conforto.png" class="figure-img img-fluid img-circle img-responsive" width="250px" alt="Aposentadoria com conforto" title="Aposentadoria com conforto">
+							<img src="img/aposentadoria.jpg" class="figure-img img-fluid img-circle img-responsive" width="300px" alt="Aposentadoria com conforto" title="Aposentadoria com conforto">
 							<figcaption class="figure-caption">Aposentadoria</figcaption>
 						</figure>
 						
@@ -127,7 +53,7 @@
 					
 					<div class="col-sm-4">
 						<figure class="figure">
-							<img src="img/conforto.png" class="figure-img img-fluid img-circle img-responsive" width="100px" alt="Casamento" title="Casamento">
+							<img src="img/casamento.jpg" class="figure-img img-fluid img-circle img-responsive" width="200px" alt="Casamento" title="Casamento">
 							<figcaption class="figure-caption">Casamento</figcaption>
 						</figure>
 					
@@ -137,7 +63,7 @@
 				<div class="row bigScreen">
 					<div class="col-sm-6">
 						<figure class="figure">
-							<img src="img/conforto.png" class="figure-img img-fluid img-circle img-responsive" width="150px" alt="Casa própria" title="Casa própria">
+							<img src="img/conforto.png" class="figure-img img-fluid img-circle img-responsive" width="200px" alt="Casa própria" title="Casa própria">
 							<figcaption class="figure-caption">Casa própria</figcaption>
 						</figure>
 					
@@ -145,13 +71,14 @@
 					
 					<div class="col-sm-6">
 						<figure class="figure">
-							<img src="img/conforto.png" class="figure-img img-fluid img-circle img-responsive" width="200px" alt="Viagens" title="Viagens">
+							<img src="img/viagens.jpg" class="figure-img img-fluid img-circle img-responsive" width="250px" alt="Viagens" title="Viagens">
 							<figcaption class="figure-caption">Viagens</figcaption>
 						</figure>
 					
 					</div>
 				</div>
 				
+				<!-- Divs que aparecem apenas em telas menores começam aqui: -->
 				<div class="row smallScreen">
 					<div class="col-sm-12">
 						<p class="texto-inicial"><span>Quem não tem planos a longo prazo?</span></p>
@@ -163,7 +90,7 @@
 				<div class="row smallScreen">
 					<div class="col-sm-6 smallScreen">
 						<figure class="figure">
-							<img src="img/conforto.png" class="figure-img img-fluid img-circle img-responsive" alt="Aposentadoria com conforto" title="Aposentadoria com conforto">
+							<img src="img/aposentadoria.jpg" class="figure-img img-fluid img-circle img-responsive" alt="Aposentadoria com conforto" title="Aposentadoria com conforto">
 							<figcaption class="figure-caption">Aposentadoria</figcaption>
 						</figure>
 						
@@ -171,7 +98,7 @@
 					
 					<div class="col-sm-6 smallScreen">
 						<figure class="figure">
-							<img src="img/conforto.png" class="figure-img img-fluid img-circle img-responsive" alt="Casamento" title="Casamento">
+							<img src="img/casamento.jpg" class="figure-img img-fluid img-circle img-responsive" alt="Casamento" title="Casamento">
 							<figcaption class="figure-caption">Casamento</figcaption>
 						</figure>
 					
@@ -189,7 +116,7 @@
 					
 					<div class="col-sm-6 smallScreen">
 						<figure class="figure">
-							<img src="img/conforto.png" class="figure-img img-fluid img-circle img-responsive" alt="Viagens" title="Viagens">
+							<img src="img/viagens.jpg" class="figure-img img-fluid img-circle img-responsive" alt="Viagens" title="Viagens">
 							<figcaption class="figure-caption">Viagens</figcaption>
 						</figure>
 					
@@ -227,7 +154,7 @@
 								<div class="input-group">
 									<label for="valor-investido">Valor investido: </label>
 									<div class="input-group-addon">R$</div>
-									<input type="number" id="valor-investido" min="1000" step="100" oninput="calcularTarifa()" class="form-control" placeholder="Valor" value=0>
+									<input type="number" id="valor-investido" min="1000" step="100" oninput="calcularTarifa()" class="form-control" placeholder="Valor" value=100>
 									<div class="input-group-addon">,00</div>
 								</div>
 								
@@ -236,7 +163,7 @@
 								<div class="input-group" id="ultima-formulario">
 									<label for="tarifa-readonly">Total: </label>
 									<div class="input-group-addon">R$</div>
-									<input class="form-control" id="tarifa-readonly" type="number" placeholder="0" readonly>
+									<input class="form-control" id="tarifa-readonly" type="number" placeholder=2 readonly>
 								</div>
 							</div>
 						</form>
@@ -277,7 +204,7 @@
 								</tr>
 								<tr>
 									<td>Bradesco</td>
-									<td>0,25%</td>
+									<td>25,21 + 0,5%</td>
 								</tr>
 								<tr>
 									<td>Easynvest</td>
