@@ -208,6 +208,16 @@ label {
 }
 
 
+/* Imagens de redes sociais: */
+.redes-sociais {
+	max-width:75px;
+	margin-left:10px;
+	margin-right:10px;
+	margin-top:10px;
+	margin-bottom:30px;
+}
+
+
 /* Notas de rodapé: */
 .texto-disclaimer {
 	letter-spacing:1px;
